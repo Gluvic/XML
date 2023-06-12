@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Prodaja odjeće</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: 'Calibri Light', sans-serif;
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        nav {
+            background-color: black;
+            color: white;
+            font-family: 'Calibri Light', sans-serif;
+            font-size: 18px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        
+
+
+        footer {
+            background-color: black;
+            color: white;
+            font-family: 'Calibri Light', sans-serif;
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product {
+            background-color: #f1f1f1;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        .product h2 {
+            margin: 0;
+        }
+
+        .product button {
+            margin-top: 10px;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Naslovnica</a>
+        <a href="kako_do_nas.html">Kako do nas</a>
+    </nav>
+
+    <div class="container">
+        <h1> </h1>
+        <div class="product">
+            <img src="crna_majica2.jpg" alt="Crna majica kratkih rukava" />
+            <h2>Majica kratkih rukava</h2>
+            <button onclick="addToCart('Majica kratkih rukava', 30)">Plati</button>
+            <p>Cijena: 30 eura</p>
+        </div>
+        <div class="product">
+            <img src="plave_traperice2.jpg" alt="Plave traperice" />
+            <h2>Traperice</h2>
+            <button onclick="addToCart('Traperice', 30)" >Plati</button>
+            <p>Cijena: 30 eura</p>
+            
+        </div>
+    </div>
+    
+    <footer>
+        Karlo Gluvić 2023
+    </footer>
+    <script>
+        function addToCart(productName, price) {
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push({ name: productName, price: price });
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert('Proizvod je kupljen!');
+        }
+    </script>
+    
+</body>
+</html>
